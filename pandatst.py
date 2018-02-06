@@ -14,6 +14,6 @@
 import pandas as pd
 
 
-df=pd.read_csv('tc1salesxys.csv')
+df=pd.read_csv('tc1sales.csv')
 
 zones_counts = df['zone1'].value_counts()
