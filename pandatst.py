@@ -12,8 +12,17 @@
 
 # The usual preamble
 import pandas as pd
-
+import matplotlib.pyplot as plt
 
 df=pd.read_csv('tc1sales.csv')
 
 zones_counts = df['zone1'].value_counts()
+
+dfsh=df[['neighbor','pricepsf','grosqft.x']]
+
+nbhd_counts=dfsh.groupby('neighbor').size()
+nbhd_counts.index = ['asto','coro','elmh','JH','LIC']
+nbhd_counts.plot(kind='bar')
+
+dfsh.groupby('neighbor').aggregate(sum)
+dfsh.groupby('neighbor').median().add_prefix('median_')
